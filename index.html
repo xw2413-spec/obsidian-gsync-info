@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Obsidian GSync Test is a private, owner-operated setup for syncing an Obsidian vault across personal devices through Google Drive.">
+  <title>Obsidian GSync Test — Private note synchronization</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header"><div class="shell header-row">
+    <a class="brand" href="index.html">Obsidian GSync Test</a>
+    <nav aria-label="Main navigation"><a href="index.html" aria-current="page">Overview</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms</a></nav>
+  </div></header>
+  <main class="shell">
+    <p class="eyebrow">A personal synchronization setup</p>
+    <h1>Your notes, across your own devices.</h1>
+    <p class="lead">Obsidian GSync Test connects a local Obsidian vault to a folder in the owner's Google Drive using the open-source GSync community plugin. It is configured for private use across the owner's computers and phones.</p>
+    <div class="flow" aria-label="Files synchronize between local Obsidian vaults and Google Drive"><span>Local Obsidian vaults</span><span aria-hidden="true">↔</span><span>Google Drive</span></div>
+    <div class="grid">
+      <section><h2>What the setup does</h2><p>It synchronizes notes and attachments, carries file changes between devices, and preserves separate copies when both sides have changed. Deletions can be synchronized through the respective trash locations.</p><p>Each device keeps its own Obsidian settings and plugins. On phones, synchronization requires Obsidian to be running; the operating system may pause it in the background.</p></section>
+      <section><h2>Why Google access is requested</h2><p>The plugin uses the Google Drive API to find the configured folder, compare file information, download and upload files, and move deleted files to Drive's trash.</p><p>It requests the full Google Drive permission so it can synchronize existing files as well as files it creates. The folder restriction is enforced by the plugin's configuration, not by a Google folder-only permission.</p></section>
+    </div>
+    <section class="article"><h2>Direct file transfer</h2><p>Notes and attachments pass between the device and Google's APIs. This setup has no application server that receives or stores notes, client secrets, or refresh tokens. The static sign-in callback page returns Google's one-time authorization response to the GSync plugin on the device.</p><p>The <a href="privacy.html">privacy policy</a> explains local credential storage, the static host's ordinary request logs, and how to revoke access.</p></section>
+    <div class="callout article"><p><strong>Private use.</strong> This website documents an owner-operated synchronization setup. It does not offer public registration, a paid service, or access to anyone's notes. Start authorization inside GSync's settings in Obsidian.</p></div>
+    <p class="fine">Built with the independent <a href="https://github.com/dg0988/ObsidianGSync" rel="noreferrer">GSync community plugin</a>. This setup is not operated or endorsed by Google or Obsidian.</p>
+  </main>
+  <footer class="site-footer"><div class="shell"><p>Obsidian GSync Test · Private note synchronization</p><p><a href="privacy.html">Privacy policy</a> · <a href="terms.html">Terms of use</a> · <a href="LICENSE">GSync callback license</a></p></div></footer>
+</body>
+</html>
