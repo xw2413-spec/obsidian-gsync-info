@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="How the private Obsidian GSync Test setup accesses, uses and stores Google Drive data and authorization credentials.">
+  <title>Privacy policy — Obsidian GSync Test</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header"><div class="shell header-row"><a class="brand" href="index.html">Obsidian GSync Test</a><nav aria-label="Main navigation"><a href="index.html">Overview</a><a href="privacy.html" aria-current="page">Privacy policy</a><a href="terms.html">Terms</a></nav></div></header>
+  <main class="shell"><article class="article">
+    <p class="eyebrow">Data practices</p><h1>Privacy policy</h1><p class="meta">Effective November 14, 2026</p>
+    <p>This policy describes Obsidian GSync Test, a private, owner-operated configuration of the open-source GSync plugin. It is intended for the owner's own Google account and personal devices. The website provides information and a static OAuth callback; it is not a note storage service.</p>
+    <h2>Google data accessed and its purpose</h2>
+    <p>After the owner grants permission, GSync uses the Google Drive API to list folders and files, read names and comparison information such as sizes, modification times and checksums, download file contents, create folders, upload and update files, and move files to Drive's trash when deletion synchronization is enabled. These operations provide synchronization between the configured local vault and the configured Drive folder.</p>
+    <p>The requested scope is <code>https://www.googleapis.com/auth/drive</code>. This permission allows broad Drive access. GSync uses its configured folder as the synchronization boundary; Google does not limit this permission to that single folder. Existing files may be read as well as files created by GSync.</p>
+    <h2>Where data is stored and transferred</h2>
+    <ul>
+      <li>Notes and attachments are stored in the local Obsidian vaults and the owner's Google Drive. File transfers go directly between the device and Google's HTTPS APIs.</li>
+      <li>The OAuth client ID, client secret, refresh token and synchronization state are saved in each device's vault-local GSync configuration. These configuration files must be protected like account credentials. GSync does not provide separate application-level encryption for this local credential file.</li>
+      <li>This setup has no application backend that stores notes or authorization credentials. Local or cloud backups separately configured by the owner may contain copies, including configuration files if those files are included in the backup.</li>
+    </ul>
+    <h2>The sign-in callback and website hosting</h2>
+    <p>Google redirects the authorization response to <code>callback.html</code>. The page reads the one-time code and state from the URL, creates a local <code>obsidian://gsync-auth</code> link, and opens Obsidian. It removes the query from the visible browser address and current history entry. The page does not contain analytics, third-party scripts, cookies, or application storage code, and does not exchange the code itself.</p>
+    <p>The website host necessarily receives web requests, including IP address, browser request information and the requested URL. During sign-in, that initial URL contains an OAuth response. The host may process or retain ordinary access and security logs according to its own policy; the application does not control those logs. Removing the query in the browser does not remove a request already received by the host. GSync uses PKCE so redemption of the one-time code also requires the verifier held on the originating device.</p>
+    <h2>Sharing and limited use</h2>
+    <p>Google data is used solely to provide the owner's requested synchronization. This setup does not sell Google user data, use it for advertising, transfer note content to a separate application server, or use it to train AI models. Google processes API requests as the selected storage provider. The static website host handles only website and callback requests as described above.</p>
+    <p>Use of information received from Google APIs follows the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noreferrer">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
+    <h2>Retention, deletion and revocation</h2>
+    <p>Synced files remain in the owner's vaults and Google Drive until the owner deletes them. With deletion synchronization enabled, corresponding files move to Drive's trash or Obsidian's trash. Trash retention, permanent deletion, and any separate backups are controlled through those products and the owner's backup settings. Stopping synchronization does not delete existing copies.</p>
+    <p>To stop future Google access, remove this app from <a href="https://myaccount.google.com/connections" rel="noreferrer">Google Account third-party connections</a>. Then sign out of GSync on every device and remove any saved credential copies or backups that are no longer needed. Merely uninstalling a plugin or deleting a local token does not itself revoke authorization at Google.</p>
+    <h2>Questions and changes</h2>
+    <p>The setup is managed by its private owner. The owner can review the support contact configured on the Google OAuth consent screen, inspect the <a href="https://github.com/dg0988/ObsidianGSync" rel="noreferrer">GSync source and documentation</a>, and update this policy if the setup's data practices change.</p>
+  </article></main>
+  <footer class="site-footer"><div class="shell"><p>Obsidian GSync Test · Private note synchronization</p><p><a href="index.html">Overview</a> · <a href="terms.html">Terms of use</a> · <a href="LICENSE">GSync callback license</a></p></div></footer>
+</body>
+</html>
